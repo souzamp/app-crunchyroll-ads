@@ -1,16 +1,24 @@
 import { useState } from 'react';
-import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, Modal, Linking } from 'react-native';
+import { View, TextInput, Text, Image, StyleSheet, TouchableOpacity, Modal } from 'react-native';
+
+import { useNavigation } from '@react-navigation/native';
 
 //importando axios
 import api from '../src/axios/api'
 
 export default function App() {
+  // constante de nevegacao
+  const navigation = useNavigation();
 
   // Definindo constantes
   const [usuario, setUsuario] = useState();
   const [senha, setSenha] = useState();
   const [modalVisible, setModalVisible] = useState(false);
   const [mensagemModal, setMensagemModal] = useState('');
+
+  const telaCadastro = () => {
+    navigation.navigate('paginas/TelaCadastro');
+  }
 
   const validarLogin = async () => {
     if (!usuario || !senha || usuario.trim() === '' || senha.trim() === '') {
@@ -101,7 +109,7 @@ export default function App() {
         <Text>Login</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.botaoCadastro}>
+      <TouchableOpacity style={styles.botaoCadastro} onPress={telaCadastro}>
         <Text>NOVA CONTA</Text>
       </TouchableOpacity>
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    /*
+        /*
     O IP http://10.0.2.2 é comumente usado em desenvolvimento quando você está rodando seu app React Native no 
     emulador Android (especialmente com o Android Emulator do Android Studio) e quer que ele se conecte à máquina 
     host (seu computador).
@@ -13,7 +13,7 @@ const api = axios.create({
     O Android Emulator, por padrão, redireciona o IP 10.0.2.2 para o localhost da máquina host 
     (ou seja, seu computador). Isso é uma ponte especial criada pelo emulador.
     */
-    baseURL: 'http://10.0.2.2:8080/'
+    baseURL: 'http://localhost:8080/'
 
 })
 
