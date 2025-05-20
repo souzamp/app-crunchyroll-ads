@@ -6,7 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 //importando axios
 import api from '../src/axios/api'
 
-export default function App() {
+export default function Login() {
   // constante de nevegacao
   const navigation = useNavigation();
 
@@ -37,7 +37,8 @@ export default function App() {
 
       if (response.status === 200) {
         console.log('Login válido');
-        // Aqui você pode navegar para outra tela
+        
+        navigation.navigate('paginas/Home'); // Navega para o Drawer (Home)
       } else {
         setMensagemModal('Usuário ou senha incorretos.');
         setModalVisible(true);
@@ -88,7 +89,7 @@ export default function App() {
       <Image
         source={require("../src/assets/logo2.png")}
         style={styles.logo}
-      />=
+      />
 
       <Text style={styles.text}>Bem-Vindo ao Crunchyroll de ADS!</Text>
 

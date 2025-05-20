@@ -4,12 +4,12 @@ import { View, Text, TextInput, TouchableOpacity, Alert, StyleSheet } from 'reac
 import api from '../../src/axios/api'; // ajuste o caminho se necessário
 
 export default function TelaCadastro() {
-  const [nomeUsuario, setNomeUsuario] = useState('');
+  const [usuario, setUsuario] = useState('');
   const [senha, setSenha] = useState('');
   const [confirmarSenha, setConfirmarSenha] = useState('');
 
   const handleCadastro = async () => {
-    if (!nomeUsuario || !senha || !confirmarSenha) {
+    if (!usuario || !senha || !confirmarSenha) {
       Alert.alert('Erro', 'Preencha todos os campos.');
       return;
     }
@@ -20,9 +20,8 @@ export default function TelaCadastro() {
     }
 
     try {
-      console.log("Chegou aqui!")
       const response = await api.post('/cadastro-usuario', {
-        nomeUsuario,
+        usuario,
         senha
       });
 
@@ -47,8 +46,8 @@ export default function TelaCadastro() {
         style={styles.input}
         placeholder="Nome completo"
         placeholderTextColor="#ccc"
-        onChangeText={setNomeUsuario}
-        value={nomeUsuario}
+        onChangeText={setUsuario}
+        value={usuario}
       />
 
       <TextInput
